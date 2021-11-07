@@ -1,11 +1,9 @@
-// import axios from "axios";
 import {fetchQuizes} from "../../store/actions/quiz";
 import React, {Component} from "react";
 import { Link } from "react-router-dom";
 import Loader from "../../components/UI/Loader/Loader";
 import classes from './QuizList.css';
 import {connect} from "react-redux";
-// import { bindActionCreators } from "redux";
 
 class QuizList extends Component {
 

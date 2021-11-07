@@ -1,5 +1,5 @@
 import axios from "axios";
-import {AUTH_SUCCESS, AUTH_LOGOUT, AUTO_LOGIN} from './actionTypes'
+import {AUTH_SUCCESS, AUTH_LOGOUT} from './actionTypes'
 
 export function auth(email, password, isLogin) {
     return async dispatch => {

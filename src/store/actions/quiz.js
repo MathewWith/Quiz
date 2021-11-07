@@ -101,10 +101,8 @@ export function retryQuiz() {
 }
 
 export function quizAnswerClick(answerId) {
-    console.log(answerId);
     return (dispatch, getState) => {
         const state = getState().quiz
-        console.log('state: ', state);
         if(state.answerState){
             const key = Object.keys(state.answerState)[0]
             if(state.answerState[key] === 'success'){

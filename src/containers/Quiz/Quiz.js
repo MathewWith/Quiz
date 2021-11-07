@@ -23,6 +23,7 @@ class Quiz extends Component {
     }
 
     render() {
+        const {quiz, isFinished, results, loading, activeQuestion, quizAnswerClick, retryQuiz, answerState} = this.props
         return (
             <div className={classes.Quiz}>
 
@@ -30,21 +31,21 @@ class Quiz extends Component {
                     <h1>Ответьте на все вопросы</h1>
 
                     {
-                        this.props.loading || !this.props.quiz 
+                        loading || !quiz 
                           ? <Loader />
-                          : this.props.isFinished 
+                          : isFinished 
                             ? <FinishedQuiz 
-                                results={ this.props.results }
-                                quiz={this.props.quiz}
-                                onRetry={this.props.retryQuiz}
+                                results={ results }
+                                quiz={quiz}
+                                onRetry={retryQuiz}
                             />
                             : <ActiveQuiz 
-                                answers={this.props.quiz[this.props.activeQuestion].answers}
-                                question={this.props.quiz[this.props.activeQuestion].question}
-                                onAnswerClick={this.props.quizAnswerClick}
-                                quizLength={this.props.quiz.length}
-                                answerNumber={this.props.activeQuestion + 1}
-                                state={this.props.answerState}
+                                answers={quiz[activeQuestion].answers}
+                                question={quiz[activeQuestion].question}
+                                onAnswerClick={quizAnswerClick}
+                                quizLength={quiz.length}
+                                answerNumber={activeQuestion + 1}
+                                state={answerState}
                                 />
                     }
                 </div>

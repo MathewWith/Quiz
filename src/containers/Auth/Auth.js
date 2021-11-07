@@ -4,39 +4,12 @@ import Input from '../../components/UI/Input/Input';
 import classes from './Auth.css';
 import is from 'is_js'
 import {auth} from '../../store/actions/auth';
-import { connect } from 'react-redux';
+import {connect} from 'react-redux';
+import { localState } from './AuthLocalState';
 
 class Auth extends Component {
 
-    state = {
-        isFormValid: false,
-        formControls: {
-            email: {
-                value: '',
-                type: 'email',
-                label: 'Email',
-                errorMessage: 'Введите корректный email',
-                valid: false,
-                touched: false,
-                validation: {
-                    required: true,
-                    email: true
-                } 
-            },
-            password: {
-                value: '',
-                type: 'password',
-                label: 'Password',
-                errorMessage: 'Введите корректный password',
-                valid: false,
-                touched: false,
-                validation: {
-                    required: true,
-                    minLength: 6
-                }
-            }
-        }
-    }
+    state = localState;
 
     loginHandler = () => {
         this.props.auth(
@@ -104,16 +77,17 @@ class Auth extends Component {
     renderInputs() {
         return Object.keys(this.state.formControls).map((controlName, index) => {
             const control = this.state.formControls[controlName]
+            const {type, value, valid, touched, errorMessage, validation, label} = control;
             return (
                 <Input 
                     key={controlName + index}
-                    type={control.type}
-                    value={control.value}
-                    valid={control.valid}
-                    touched={control.touched}
-                    errorMessage={control.errorMessage}
-                    shouldValidation={!!control.validation}
-                    label={control.label}
+                    type={type}
+                    value={value}
+                    valid={valid}
+                    touched={touched}
+                    errorMessage={errorMessage}
+                    shouldValidation={!!validation}
+                    label={label}
                     onChange={event => this.onChangeHandler(event, controlName)}
                 />
             )

@@ -36,7 +36,7 @@ class QuizCreator extends Component {
         formControls: createFormControls()
     }
 
-    createQuizHandler =  event => {
+    createQuizHandler = event => {
         event.preventDefault()
           
           this.setState({
@@ -73,7 +73,7 @@ class QuizCreator extends Component {
         })
     }
 
-    submitHandler = (event) => {
+    submitFormHandler = (event) => {
         event.preventDefault()
     }
 
@@ -138,7 +138,7 @@ class QuizCreator extends Component {
                 <div>
                     <h1>Создание теста</h1>
 
-                    <form onSubmit={this.submitHandler}>
+                    <form onSubmit={this.submitFormHandler}>
                         
                         {this.renderControls()}
 
