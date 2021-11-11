@@ -10,10 +10,13 @@
 .QuizList h1 {
   color: #fff;
   height: 50px;
+  font-size: 45px;
 }
 
 .QuizList ul {
-  justify-content: center;
+  position: absolute;
+  left: 33%;
+  top: 25%;
   height: 40px;
   list-style: none;
   padding: 0;

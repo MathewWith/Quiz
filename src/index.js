@@ -9,6 +9,8 @@ import {Provider} from 'react-redux';
 import rootReducer from './store/reducers/rootReducer';
 import thunk from 'redux-thunk';
 
+//тестовые значения для авторизации - login: wfm@mail.ru, password: 123456
+
 const composeEnhancers =
   typeof window === 'object' &&
   window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ?   
@@ -32,3 +34,4 @@ const app = (
 
 ReactDOM.render(app, document.getElementById('root'));
 registerServiceWorker();
+

@@ -1,5 +1,6 @@
 import axios from "axios";
 import {AUTH_SUCCESS, AUTH_LOGOUT} from './actionTypes'
+import { REGISTRATION_URL, SIGN_IN_URL } from "./authURL";
 
 export function auth(email, password, isLogin) {
     return async dispatch => {
@@ -8,10 +9,10 @@ export function auth(email, password, isLogin) {
             password,
             returnSecureToken: true
         }
-        let url = 'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCUNcwvo51chyPmRiMfDvtS0_NMIN5DBG8'
+        let url = REGISTRATION_URL  
 
         if(isLogin){
-            url = 'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyCUNcwvo51chyPmRiMfDvtS0_NMIN5DBG8';
+             url = SIGN_IN_URL 
         }
         
         const response = await axios.post(url, authData)

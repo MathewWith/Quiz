@@ -8,12 +8,6 @@ import {fetchQuizById, quizAnswerClick, retryQuiz} from '../../store/actions/qui
 
 class Quiz extends Component {
 
-    retryHandler = () => {
-        this.setState({
-            
-        })
-    }
-
     componentWillUnmount() {
         this.props.retryQuiz()
     }
@@ -55,13 +49,14 @@ class Quiz extends Component {
 }
 
 function mapStateToProps(state) {
+    const {results, activeQuestion, isFinished, answerState, quiz, loading} = state.quiz
     return {
-        results: state.quiz.results, // {[id]: 'success' 'error'}
-        activeQuestion: state.quiz.activeQuestion,
-        isFinished: state.quiz.isFinished,
-        answerState: state.quiz.answerState, // {[id]: 'success' 'error'}
-        quiz: state.quiz.quiz,
-        loading: state.quiz.loading
+        results, // {[id]: 'success' 'error'}
+        activeQuestion,
+        isFinished,
+        answerState, // {[id]: 'success' 'error'}
+        quiz,
+        loading
     }
 }
 

@@ -7,6 +7,7 @@ import Select from "../../components/UI/Select/Select";
 import {finishCreateQuiz, createQuizQuestion} from '../../store/actions/create'
 import {connect} from "react-redux";
 
+
 function createOptionControl(number){
     return createControl({
         label: `Вариант ${number}`,
@@ -64,6 +65,7 @@ class QuizCreator extends Component {
             ]
         }
 
+        console.log(questionItem.answers);
         this.props.createQuizQuestion(questionItem)
 
         this.setState({
